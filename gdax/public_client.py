@@ -46,7 +46,7 @@ class PublicClient(object):
 
         """
         r = requests.get(self.url + '/products', timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_product_order_book(self, product_id, level=1):
@@ -87,7 +87,7 @@ class PublicClient(object):
         params = {'level': level}
         r = requests.get(self.url + '/products/{}/book'
                          .format(product_id), params=params, timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_product_ticker(self, product_id):
@@ -114,7 +114,7 @@ class PublicClient(object):
         """
         r = requests.get(self.url + '/products/{}/ticker'
                          .format(product_id), timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_product_trades(self, product_id):
@@ -141,7 +141,7 @@ class PublicClient(object):
 
         """
         r = requests.get(self.url + '/products/{}/trades'.format(product_id), timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_product_historic_rates(self, product_id, start=None, end=None,
@@ -190,7 +190,7 @@ class PublicClient(object):
             params['granularity'] = granularity
         r = requests.get(self.url + '/products/{}/candles'
                          .format(product_id), params=params, timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_product_24hr_stats(self, product_id):
@@ -211,7 +211,7 @@ class PublicClient(object):
 
         """
         r = requests.get(self.url + '/products/{}/stats'.format(product_id), timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_currencies(self):
@@ -231,7 +231,7 @@ class PublicClient(object):
 
         """
         r = requests.get(self.url + '/currencies', timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
 
     def get_time(self):
@@ -247,5 +247,5 @@ class PublicClient(object):
 
         """
         r = requests.get(self.url + '/time', timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         return r.json()
